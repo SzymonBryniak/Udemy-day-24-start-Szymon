@@ -7,10 +7,12 @@ class Scoreboard(Turtle):
         super().__init__()
         self.color("red")
         self.position = (0, 280)
-
+        self.hideturtle()
+        self.coll = 0
     def display_score(self):
         self.penup()
         self.goto(self.position)
-        self.write("score = 0", align="center", font=("Verdana", 15, "normal"))
+
+        self.write(f"score = {self.coll}", align="center", font=("Verdana", 15, "normal"))
 
 
