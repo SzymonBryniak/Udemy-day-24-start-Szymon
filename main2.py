@@ -21,7 +21,6 @@ screen.onkey(snake.left, "Left")
 screen.onkey(snake.right, "Right")
 
 
-
 game_is_on = True
 while game_is_on:
     screen.update()
@@ -34,7 +33,17 @@ while game_is_on:
         score.clear()
         score.coll += 1
         print("nom, nom, nom")
+        snake.extend()
         food.refresh()
+    # detect collision with edges
+    if snake.head.xcor() > 280 or snake.head.ycor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() < -280:
+        game_is_on = False
+        score.game_over()
 
+    # detect collision with tail
+    for segment in snake.snake[1:]:
+        if snake.head.distance(segment) < 10:
+            game_is_on = False
+            score.game_over()
 screen.exitonclick()
 
