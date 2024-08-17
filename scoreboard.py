@@ -30,4 +30,6 @@ class Scoreboard(Turtle):
         with open("data.txt", mode="r") as self.highscore:
             self.high_score = self.highscore.read()
 
+            
+
 
