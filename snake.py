@@ -26,6 +26,10 @@ class Snake:
     def extend(self):
         self.add_segment(self.snake[-1].position())
 
+    def reset_snake(self):
+        self.snake.clear()
+        self.create_snake()
+
     def move(self):
 
         for s in range(len(self.snake) - 1, 0, -1):
