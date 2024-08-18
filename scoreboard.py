@@ -7,6 +7,7 @@ class Scoreboard(Turtle):
 
     def __init__(self):
         super().__init__()
+        self.path = r"C:\Users\Szymon Bryniak\Desktop\data.txt"
         self.color("red")
         self.position = (0, 278)
         self.hideturtle()
@@ -18,7 +19,7 @@ class Scoreboard(Turtle):
         self.goto(0, 0)
         self.write("GAME OVER", align=ALIGNMENT, font=FONT)
         if self.coll > int(self.high_score):
-            with open("data.txt", mode="w") as self.highscore:
+            with open(self.path, mode="w") as self.highscore:
                 self.highscore.write(str(self.coll))
 
     def display_score(self):
@@ -27,9 +28,9 @@ class Scoreboard(Turtle):
         self.write(f"score = {self.coll} High Score: {self.high_score}", align=ALIGNMENT, font=FONT)
 
     def score_file(self):
-        with open("data.txt", mode="r") as self.highscore:
+        with open(self.path, mode="r") as self.highscore:
             self.high_score = self.highscore.read()
 
-            
+
 
 
